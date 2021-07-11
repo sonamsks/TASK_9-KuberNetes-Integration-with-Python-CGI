@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>KuberneteWebPage</title>
+</head>
+
+<body>
+    <nav class="navbar background">
+        <ul class="nav-list">
+
+            <li><a href="#home">User to Run all KUBERNETES commands Like :</a></li>
+        </ul>
+        <div class="rightNav">
+            <input type="text" name="search" id="search">
+            <button class="btn-sm" onClick="mySearch()">Search</button>
+        </div>
+    </nav>
+
+   <hr>
+    <section class="contact">
+            <h2 class="text-center">KUBERNETES</h2>
+        <div class="form">
+                  <textarea class="form-input" name="text" id="text" cols="30" rows="15" placeholder="Output of above command"></textarea>
+        </div>
+    </section>
+
+    <footer class="background">
+        <p class="text-footer">
+        copyright &copy; 2021 . www.KubeWebUI.com . All right reserved
+        </p>
+    </footer>
+
+    <script>
+        function mySearch(){
+              docker_inp = document.getElementById("search")
+              docker_inp.value
+              console.log(docker_inp.value)
+              var xhr = new XMLHttpRequest();
+              xhr.open("GET",'http://3.108.54.185/cgi-bin/sonam.py?cmd='+docker_inp.value,true);
+
+              xhr.send();
+              xhr.onload = function(){
+                  var output = xhr.responseText;
+                  document.getElementById('text').value=output;
+                //   document.getElementsByClassName('bar')[0].style = "border-bottom-left-radius: 0px; border-bottom-right-radius: 0;border-bottom: 3px;"
+              //    document.getElementsByClassName('bar')[0].style = "border-bottom-right-radius: 0;"
+              //     document.getElementsByClassName('bar')[0].style = "border-bottom: 3px;"
+              }
+        }
+    </script>
+</body>
+
+</html>
